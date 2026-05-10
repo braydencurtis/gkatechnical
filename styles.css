@@ -807,21 +807,23 @@ nav {
   border-radius: 20px;
   padding: 60px 56px;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  gap: 40px;
-  flex-wrap: wrap;
+  text-align: center;
+  gap: 32px;
 }
 
+.cta-text { max-width: 620px; }
 .cta-text .section-title { margin-bottom: 10px; }
 .cta-text p { color: var(--text-muted); font-size: 1rem; }
 
 .cta-actions {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: stretch;
   gap: 16px;
-  flex-shrink: 0;
+  width: 100%;
+  max-width: 360px;
 }
 
 .cta-phone-display {
@@ -829,6 +831,7 @@ nav {
   font-weight: 700;
   color: var(--gold);
   letter-spacing: -0.01em;
+  text-align: center;
 }
 
 /* ── Contact ── */
@@ -1049,7 +1052,7 @@ footer {
   .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
 
   .cta-inner { padding: 40px 32px; }
-  .cta-actions { align-items: flex-start; }
+  .cta-actions { max-width: 100%; }
 }
 
 @media (max-width: 600px) {
