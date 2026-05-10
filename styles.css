@@ -472,10 +472,12 @@ nav {
 }
 
 .service-brands {
-  margin-top: 16px;
+/*  margin-top: 16px;
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
+  */
+  display: none;
 }
 .brand-tag {
   padding: 3px 9px;
