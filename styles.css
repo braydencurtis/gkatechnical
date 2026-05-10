@@ -669,8 +669,9 @@ nav {
 
 .process-connector {
   position: absolute;
-  top: 38px;
-  right: -1px;
+  top: 50%;
+  right: -13px;
+  transform: translateY(-50%);
   width: 24px;
   height: 24px;
   background: var(--bg);
