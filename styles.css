@@ -523,7 +523,6 @@ nav {
 
 .brands-track {
   display: flex;
-  gap: 48px;
   align-items: center;
   width: max-content;
   animation: brand-scroll 22s linear infinite;
@@ -538,6 +537,7 @@ nav {
   filter: grayscale(1) brightness(1.8);
   transition: opacity 0.2s, filter 0.2s;
   flex-shrink: 0;
+  margin-right: 48px;
 }
 .brands-track img:hover {
   opacity: 0.9;
