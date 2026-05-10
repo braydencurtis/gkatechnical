@@ -487,6 +487,68 @@ nav {
   font-weight: 500;
 }
 
+/* ── Brand Carousel ── */
+.brands-carousel-card {
+  grid-column: 1 / -1;
+  cursor: default;
+}
+.brands-carousel-card:hover { transform: none; }
+
+.brands-carousel-header {
+  margin-bottom: 64px;
+}
+
+.brands-track-wrap {
+  position: relative;
+  overflow: hidden;
+}
+.brands-track-wrap::before,
+.brands-track-wrap::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 80px;
+  z-index: 2;
+  pointer-events: none;
+}
+.brands-track-wrap::before {
+  left: 0;
+  background: linear-gradient(to right, var(--bg-card), transparent);
+}
+.brands-track-wrap::after {
+  right: 0;
+  background: linear-gradient(to left, var(--bg-card), transparent);
+}
+
+.brands-track {
+  display: flex;
+  gap: 48px;
+  align-items: center;
+  width: max-content;
+  animation: brand-scroll 22s linear infinite;
+}
+.brands-track:hover { animation-play-state: paused; }
+
+.brands-track img {
+  height: 36px;
+  width: auto;
+  object-fit: contain;
+  opacity: 0.55;
+  filter: grayscale(1) brightness(1.8);
+  transition: opacity 0.2s, filter 0.2s;
+  flex-shrink: 0;
+}
+.brands-track img:hover {
+  opacity: 0.9;
+  filter: grayscale(0) brightness(1);
+}
+
+@keyframes brand-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
 /* ── Why Us ── */
 #why {
   padding: 100px 0;
@@ -760,7 +822,6 @@ nav {
   color: var(--text-muted);
 }
 
-.area-content {}
 
 .area-perks {
   display: flex;
@@ -850,7 +911,6 @@ nav {
 
 .contact-info { display: flex; flex-direction: column; gap: 32px; }
 
-.contact-block {}
 .contact-block-label {
   font-size: 0.72rem;
   font-weight: 600;
