@@ -429,6 +429,29 @@ nav {
   position: relative;
   overflow: hidden;
 }
+.service-card[style*="--card-img"] {
+  background: var(--bg-card);
+}
+.service-card[style*="--card-img"]::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(26,26,30,0.91), rgba(26,26,30,0.94)), var(--card-img);
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+  transition: transform 0.6s ease;
+}
+.service-card[style*="--card-img"]:hover::after {
+  transform: scale(1.04);
+}
+.service-card[style*="--card-img"] > * {
+  position: relative;
+  z-index: 1;
+}
+.service-card[style*="--card-img"]::before {
+  z-index: 2;
+}
 .service-card::before {
   content: '';
   position: absolute;
