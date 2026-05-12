@@ -885,8 +885,9 @@ nav {
 .cta-bg {
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(ellipse 70% 100% at 50% 50%, rgba(201,168,76,0.08) 0%, transparent 65%);
+  background: radial-gradient(ellipse 70% 100% at 50% 50%, rgba(201,168,76,0.08) 0%, transparent 65%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 18%);
+  mask-image: linear-gradient(to bottom, transparent 0%, black 18%);
 }
 
 .cta-inner {
