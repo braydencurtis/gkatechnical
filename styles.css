@@ -401,6 +401,69 @@ nav {
 }
 .trust-icon svg { width: 16px; height: 16px; stroke: var(--gold); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 
+/* ── Dealer Banner ── */
+#dealer-banner {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 16px 0;
+  background: rgba(26,26,30,0.75);
+  border-top: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.dealer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.dealer-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.dealer-sub {
+  display: block;
+  font-size: 0.82rem;
+  color: var(--text-dim);
+  margin-top: 2px;
+}
+
+.dealer-logos {
+  display: flex;
+  align-items: center;
+  gap: 72px;
+}
+
+.dealer-logos img {
+  height: 28px;
+  width: auto;
+  opacity: 0.75;
+  filter: brightness(0) invert(1);
+}
+
+.dealer-cta {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--gold);
+  transition: color var(--transition);
+  white-space: nowrap;
+}
+.dealer-cta:hover { color: var(--gold-light); }
+
+@media (max-width: 700px) {
+  .dealer-inner { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .dealer-cta { align-self: flex-start; }
+}
+
 /* ── Services ── */
 #services {
   padding: 100px 0;
