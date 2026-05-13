@@ -10,7 +10,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
   <script src="scripts.js" defer></script>
-  <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 
 </head>
 <body>
@@ -590,47 +589,46 @@
       <div class="contact-form">
         <div class="form-title">Request Service</div>
 
-        <div data-fs-success style="display:none" class="form-success-msg">
-          Your request was sent! We'll be in touch shortly.
+        <div id="form-success" style="display:none" class="form-success-msg">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>
+          <strong>Request Received</strong>
+          <p>We'll reach out within a few hours to confirm your service appointment.</p>
         </div>
-        <div data-fs-error style="display:none" class="form-error-msg"></div>
+        <div id="form-error" style="display:none" class="form-error-msg">
+          Something went wrong sending your request. Please call us directly at <a href="tel:+14064034894">(406) 403-4894</a>.
+        </div>
 
         <form id="service-form">
           <div class="form-row">
             <div class="form-group">
               <label class="form-label" for="fname">First Name *</label>
-              <input class="form-input" type="text" id="fname" name="fname" placeholder="John" required data-fs-field />
-              <span data-fs-error="fname" class="form-field-error"></span>
+              <input class="form-input" type="text" id="fname" name="fname" placeholder="John" required />
             </div>
             <div class="form-group">
               <label class="form-label" for="lname">Last Name *</label>
-              <input class="form-input" type="text" id="lname" name="lname" placeholder="Smith" required data-fs-field />
-              <span data-fs-error="lname" class="form-field-error"></span>
+              <input class="form-input" type="text" id="lname" name="lname" placeholder="Smith" required />
             </div>
           </div>
 
           <div class="form-group">
             <label class="form-label" for="business">Business Name *</label>
-            <input class="form-input" type="text" id="business" name="business" placeholder="Your Restaurant or Business" required data-fs-field />
-            <span data-fs-error="business" class="form-field-error"></span>
+            <input class="form-input" type="text" id="business" name="business" placeholder="Your Restaurant or Business" required />
           </div>
 
           <div class="form-row">
             <div class="form-group">
               <label class="form-label" for="phone">Phone *</label>
-              <input class="form-input" type="tel" id="phone" name="phone" placeholder="(406) 000-0000" required data-fs-field />
-              <span data-fs-error="phone" class="form-field-error"></span>
+              <input class="form-input" type="tel" id="phone" name="phone" placeholder="(406) 000-0000" required />
             </div>
             <div class="form-group">
               <label class="form-label" for="email">Email</label>
-              <input class="form-input" type="email" id="email" name="email" placeholder="you@business.com" data-fs-field />
-              <span data-fs-error="email" class="form-field-error"></span>
+              <input class="form-input" type="email" id="email" name="email" placeholder="you@business.com" />
             </div>
           </div>
 
           <div class="form-group">
             <label class="form-label" for="equipment">Equipment Type *</label>
-            <select class="form-select" id="equipment" name="equipment" required data-fs-field>
+            <select class="form-select" id="equipment" name="equipment" required>
               <option value="" disabled selected>Select equipment type…</option>
               <option>Commercial Oven / Range</option>
               <option>Combination Oven</option>
@@ -639,12 +637,11 @@
               <option>Coffee System</option>
               <option>Other</option>
             </select>
-            <span data-fs-error="equipment" class="form-field-error"></span>
           </div>
 
           <div class="form-group">
             <label class="form-label" for="urgency">Urgency</label>
-            <select class="form-select" id="urgency" name="urgency" data-fs-field>
+            <select class="form-select" id="urgency" name="urgency">
               <option value="standard">Standard — within 1–2 days</option>
               <option value="urgent">Urgent — today if possible</option>
               <option value="emergency">Emergency — equipment down, need ASAP</option>
@@ -653,20 +650,14 @@
 
           <div class="form-group">
             <label class="form-label" for="description">Describe the Issue</label>
-            <textarea class="form-textarea" id="description" name="description" placeholder="Briefly describe what's happening with the equipment — error codes, symptoms, when it started…" data-fs-field></textarea>
-            <span data-fs-error="description" class="form-field-error"></span>
+            <textarea class="form-textarea" id="description" name="description" placeholder="Briefly describe what's happening with the equipment — error codes, symptoms, when it started…"></textarea>
           </div>
 
-          <button type="submit" class="btn btn-primary form-submit" id="submit-btn" data-fs-submit-btn>
+          <button type="submit" class="btn btn-primary form-submit" id="submit-btn">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
             Send Service Request
           </button>
         </form>
-
-        <script>
-          window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
-          formspree('initForm', { formElement: '#service-form', formId: 'xlgzvnjy' });
-        </script>
       </div>
     </div>
   </div>
