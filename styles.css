@@ -1139,6 +1139,10 @@ nav {
   min-height: 1em;
 }
 
+.input-error {
+  border-color: #9e3d3d !important;
+}
+
 /* ── Footer ── */
 footer {
   background: var(--bg);

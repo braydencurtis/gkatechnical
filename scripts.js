@@ -40,12 +40,56 @@ const formError = document.getElementById('form-error');
 const submitBtn = document.getElementById('submit-btn');
 const submitBtnOriginalHTML = submitBtn ? submitBtn.innerHTML : '';
 
+function setFieldError(id, message) {
+  const el = document.getElementById('err-' + id);
+  if (el) el.textContent = message;
+}
+
+function clearFieldErrors() {
+  serviceForm.querySelectorAll('.form-field-error').forEach(el => el.textContent = '');
+  serviceForm.querySelectorAll('.form-input, .form-select, .form-textarea').forEach(el => el.classList.remove('input-error'));
+}
+
+function validateForm() {
+  let valid = true;
+
+  const checks = [
+    { id: 'fname',     msg: 'Please enter your first name.' },
+    { id: 'lname',     msg: 'Please enter your last name.' },
+    { id: 'business',  msg: 'Please enter your business name.' },
+    { id: 'phone',     msg: 'Please enter your phone number.' },
+    { id: 'equipment', msg: 'Please select an equipment type.' },
+  ];
+
+  checks.forEach(({ id, msg }) => {
+    const el = document.getElementById(id);
+    if (!el.value.trim()) {
+      setFieldError(id, msg);
+      el.classList.add('input-error');
+      valid = false;
+    }
+  });
+
+  const emailEl = document.getElementById('email');
+  if (emailEl.value.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailEl.value.trim())) {
+    setFieldError('email', 'Please enter a valid email address.');
+    emailEl.classList.add('input-error');
+    valid = false;
+  }
+
+  return valid;
+}
+
 if (serviceForm) {
   serviceForm.addEventListener('submit', async (e) => {
     e.preventDefault();
+    clearFieldErrors();
+    formError.style.display = 'none';
+
+    if (!validateForm()) return;
+
     submitBtn.disabled = true;
     submitBtn.innerHTML = 'Sending…';
-    formError.style.display = 'none';
 
     try {
       const res = await fetch('https://formspree.io/f/xlgzvnjy', {
@@ -68,6 +112,14 @@ if (serviceForm) {
       formError.style.display = 'block';
       submitBtn.disabled = false;
       submitBtn.innerHTML = submitBtnOriginalHTML;
+    }
+  });
+
+  serviceForm.addEventListener('input', (e) => {
+    const id = e.target.id;
+    if (document.getElementById('err-' + id)) {
+      setFieldError(id, '');
+      e.target.classList.remove('input-error');
     }
   });
 }
