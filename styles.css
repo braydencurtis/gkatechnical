@@ -1087,6 +1087,32 @@ nav {
   justify-content: center;
 }
 
+.form-success-msg {
+  padding: 14px 16px;
+  margin-bottom: 18px;
+  background: #1a3d25;
+  border: 1px solid #3d9e56;
+  border-radius: 8px;
+  color: #6fcf8a;
+  font-size: 0.95rem;
+}
+
+.form-error-msg {
+  padding: 14px 16px;
+  margin-bottom: 18px;
+  background: #3d1a1a;
+  border: 1px solid #9e3d3d;
+  border-radius: 8px;
+  color: #cf6f6f;
+  font-size: 0.95rem;
+}
+
+.form-field-error {
+  font-size: 0.8rem;
+  color: #cf6f6f;
+  min-height: 1em;
+}
+
 /* ── Footer ── */
 footer {
   background: var(--bg);

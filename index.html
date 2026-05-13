@@ -10,6 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
   <script src="scripts.js" defer></script>
+  <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 
 </head>
 <body>
@@ -411,12 +412,12 @@
           <svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
           <svg class="star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
         </div>
-        <p class="testimonial-text">"Our espresso machine went down on a Friday night. GKA had a technician here by Saturday morning. They had the part on the truck — fixed it in two hours. Saved thousands in product. Absolute lifesavers."</p>
+        <p class="testimonial-text">"Had a really great experience with Gary! From the start, he was super easy to work with and made the whole process feel stress-free.<br /><br />He  showed up on time, took a good look at the problem, and explained everything in a way that actually made sense (which I really appreciated). The price was fair, and there were no surprises along the way. <br/> <br/> The work itself turned out awesome—everything was fixed quickly and looks great. You can tell he cares about doing a good job, and even cleaned up everything before leaving, which was a nice bonus. Gary even pointed out areas of opportunity for cleanliness while working on equipment. <br /><br />Overall, just a really solid, reliable company. I’d use him again and would recommend them to anyone needing kitchen repairs 100%!"</p>
         <div class="testimonial-author">
-          <div class="author-avatar">MR</div>
+          <div class="author-avatar">ST</div>
           <div>
-            <div class="author-name">Mike Reston</div>
-            <div class="author-role">Owner — Coffee Place</div>
+            <div class="author-name">Sara Thomas</div>
+            <div class="author-role">Executive Chef — Thomas Cuisine</div>
           </div>
         </div>
       </div>
@@ -588,50 +589,62 @@
 
       <div class="contact-form">
         <div class="form-title">Request Service</div>
-        <form id="service-form" onsubmit="handleSubmit(event)">
+
+        <div data-fs-success style="display:none" class="form-success-msg">
+          Your request was sent! We'll be in touch shortly.
+        </div>
+        <div data-fs-error style="display:none" class="form-error-msg"></div>
+
+        <form id="service-form">
           <div class="form-row">
             <div class="form-group">
               <label class="form-label" for="fname">First Name *</label>
-              <input class="form-input" type="text" id="fname" name="fname" placeholder="John" required />
+              <input class="form-input" type="text" id="fname" name="fname" placeholder="John" required data-fs-field />
+              <span data-fs-error="fname" class="form-field-error"></span>
             </div>
             <div class="form-group">
               <label class="form-label" for="lname">Last Name *</label>
-              <input class="form-input" type="text" id="lname" name="lname" placeholder="Smith" required />
+              <input class="form-input" type="text" id="lname" name="lname" placeholder="Smith" required data-fs-field />
+              <span data-fs-error="lname" class="form-field-error"></span>
             </div>
           </div>
 
           <div class="form-group">
             <label class="form-label" for="business">Business Name *</label>
-            <input class="form-input" type="text" id="business" name="business" placeholder="Your Restaurant or Business" required />
+            <input class="form-input" type="text" id="business" name="business" placeholder="Your Restaurant or Business" required data-fs-field />
+            <span data-fs-error="business" class="form-field-error"></span>
           </div>
 
           <div class="form-row">
             <div class="form-group">
               <label class="form-label" for="phone">Phone *</label>
-              <input class="form-input" type="tel" id="phone" name="phone" placeholder="(406) 000-0000" required />
+              <input class="form-input" type="tel" id="phone" name="phone" placeholder="(406) 000-0000" required data-fs-field />
+              <span data-fs-error="phone" class="form-field-error"></span>
             </div>
             <div class="form-group">
               <label class="form-label" for="email">Email</label>
-              <input class="form-input" type="email" id="email" name="email" placeholder="you@business.com" />
+              <input class="form-input" type="email" id="email" name="email" placeholder="you@business.com" data-fs-field />
+              <span data-fs-error="email" class="form-field-error"></span>
             </div>
           </div>
 
           <div class="form-group">
             <label class="form-label" for="equipment">Equipment Type *</label>
-            <select class="form-select" id="equipment" name="equipment" required>
+            <select class="form-select" id="equipment" name="equipment" required data-fs-field>
               <option value="" disabled selected>Select equipment type…</option>
               <option>Commercial Oven / Range</option>
               <option>Combination Oven</option>
               <option>Commercial Fryer</option>
               <option>Commercial Dishwasher</option>
-              <option>Coffee System</option>>
+              <option>Coffee System</option>
               <option>Other</option>
             </select>
+            <span data-fs-error="equipment" class="form-field-error"></span>
           </div>
 
           <div class="form-group">
             <label class="form-label" for="urgency">Urgency</label>
-            <select class="form-select" id="urgency" name="urgency">
+            <select class="form-select" id="urgency" name="urgency" data-fs-field>
               <option value="standard">Standard — within 1–2 days</option>
               <option value="urgent">Urgent — today if possible</option>
               <option value="emergency">Emergency — equipment down, need ASAP</option>
@@ -640,14 +653,20 @@
 
           <div class="form-group">
             <label class="form-label" for="description">Describe the Issue</label>
-            <textarea class="form-textarea" id="description" name="description" placeholder="Briefly describe what's happening with the equipment — error codes, symptoms, when it started…"></textarea>
+            <textarea class="form-textarea" id="description" name="description" placeholder="Briefly describe what's happening with the equipment — error codes, symptoms, when it started…" data-fs-field></textarea>
+            <span data-fs-error="description" class="form-field-error"></span>
           </div>
 
-          <button type="submit" class="btn btn-primary form-submit" id="submit-btn">
+          <button type="submit" class="btn btn-primary form-submit" id="submit-btn" data-fs-submit-btn>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
             Send Service Request
           </button>
         </form>
+
+        <script>
+          window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+          formspree('initForm', { formElement: '#service-form', formId: 'xlgzvnjy' });
+        </script>
       </div>
     </div>
   </div>
