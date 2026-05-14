@@ -54,8 +54,8 @@ function validateForm() {
   let valid = true;
 
   const checks = [
-    { id: 'fname',     msg: 'Please enter your first name.' },
-    { id: 'lname',     msg: 'Please enter your last name.' },
+    { id: 'first-name', msg: 'Please enter your first name.' },
+    { id: 'last-name',  msg: 'Please enter your last name.' },
     { id: 'business',  msg: 'Please enter your business name.' },
     { id: 'address',   msg: 'Please enter a street address.' },
     { id: 'city',      msg: 'Please enter a city.' },
