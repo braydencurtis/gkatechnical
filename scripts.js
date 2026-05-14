@@ -57,6 +57,10 @@ function validateForm() {
     { id: 'fname',     msg: 'Please enter your first name.' },
     { id: 'lname',     msg: 'Please enter your last name.' },
     { id: 'business',  msg: 'Please enter your business name.' },
+    { id: 'address',   msg: 'Please enter a street address.' },
+    { id: 'city',      msg: 'Please enter a city.' },
+    { id: 'state',     msg: 'Please enter a state.' },
+    { id: 'zip',       msg: 'Please enter a zip code.' },
     { id: 'phone',     msg: 'Please enter your phone number.' },
     { id: 'equipment', msg: 'Please select an equipment type.' },
   ];

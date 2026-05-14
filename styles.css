@@ -1041,7 +1041,8 @@ nav {
   margin-bottom: 24px;
 }
 
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+.form-row .form-group { margin-bottom: 0; }
 
 .form-group { display: flex; flex-direction: column; gap: 7px; margin-bottom: 16px; }
 .form-group:last-of-type { margin-bottom: 0; }

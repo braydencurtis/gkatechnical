@@ -618,6 +618,30 @@
             <span class="form-field-error" id="err-business"></span>
           </div>
 
+          <div class="form-group">
+            <label class="form-label" for="address">Street Address *</label>
+            <input class="form-input" type="text" id="address" name="address" placeholder="123 Main St" required />
+            <span class="form-field-error" id="err-address"></span>
+          </div>
+
+          <div class="form-row" style="grid-template-columns: 1fr 80px 110px;">
+            <div class="form-group">
+              <label class="form-label" for="city">City *</label>
+              <input class="form-input" type="text" id="city" name="city" placeholder="Great Falls" required />
+              <span class="form-field-error" id="err-city"></span>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="state">State *</label>
+              <input class="form-input" type="text" id="state" name="state" placeholder="MT" maxlength="2" required />
+              <span class="form-field-error" id="err-state"></span>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="zip">Zip *</label>
+              <input class="form-input" type="text" id="zip" name="zip" placeholder="59401" maxlength="10" required />
+              <span class="form-field-error" id="err-zip"></span>
+            </div>
+          </div>
+
           <div class="form-row">
             <div class="form-group">
               <label class="form-label" for="phone">Phone *</label>
