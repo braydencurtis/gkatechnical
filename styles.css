@@ -460,8 +460,45 @@ nav {
 .dealer-cta:hover { color: var(--gold-light); }
 
 @media (max-width: 700px) {
-  .dealer-inner { flex-direction: column; align-items: flex-start; gap: 16px; }
-  .dealer-cta { align-self: flex-start; }
+  .dealer-inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+  }
+  .dealer-text {
+    width: 100%;
+  }
+  .dealer-logos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    justify-content: center;
+    width: 100%;
+  }
+  .dealer-logos img {
+    height: 24px;
+    max-width: 100%;
+  }
+  .dealer-cta {
+    align-self: center;
+    width: 100%;
+    max-width: 360px;
+  }
+  #hero {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  #dealer-banner {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    right: auto;
+    width: auto;
+    margin-top: 32px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
 }
 
 /* ── Services ── */
