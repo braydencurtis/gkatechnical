@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coming Soon | GKA Technical</title>
+  <meta name="description" content="Something new is coming from GKA Technical — commercial kitchen appliance repair in Great Falls, MT." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:         #0d0d0f;
+      --bg-raised:  #141416;
+      --bg-card:    #1a1a1e;
+      --bg-card-hover: #202025;
+      --border:     #2a2a30;
+      --border-light: #353540;
+      --text:       #e8e8ec;
+      --text-muted: #9090a0;
+      --text-dim:   #606070;
+      --gold:       #c9a84c;
+      --gold-light: #e2c46e;
+      --gold-dim:   #9a7c34;
+      --gold-glow:  rgba(201,168,76,0.15);
+      --radius:     12px;
+      --radius-lg:  18px;
+      --transition: 0.22s ease;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    .container {
+      width: 100%;
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .gold { color: var(--gold); }
+
+    /* ── Nav ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(13,13,15,0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-logo-icon {
+      width: 36px;
+      height: 36px;
+      background: linear-gradient(135deg, var(--gold-dim), var(--gold));
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .nav-logo-icon svg { width: 20px; height: 20px; fill: #0d0d0f; }
+
+    .nav-logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+    .nav-logo-name {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: 0.02em;
+    }
+    .nav-logo-sub {
+      font-size: 0.65rem;
+      color: var(--text-dim);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .nav-phone {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--gold);
+      transition: color var(--transition);
+    }
+    .nav-phone:hover { color: var(--gold-light); }
+
+    /* ── Main ── */
+    main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 120px 0 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Radial glow background */
+    main::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 40%, rgba(201,168,76,0.07) 0%, transparent 65%),
+        radial-gradient(ellipse 40% 40% at 20% 80%, rgba(201,168,76,0.04) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    /* Subtle animated grid lines */
+    main::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 60px 60px;
+      opacity: 0.18;
+      pointer-events: none;
+      -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 80%);
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 80%);
+    }
+
+    .cs-inner {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 0;
+      width: min(720px, calc(100% - 48px));
+    }
+
+    /* Badge */
+    .cs-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px 6px 10px;
+      background: var(--bg-card);
+      border: 1px solid rgba(201,168,76,0.3);
+      border-radius: 100px;
+      margin-bottom: 32px;
+    }
+    .cs-badge-icon {
+      width: 20px; height: 20px;
+      background: var(--gold-glow);
+      border: 1px solid rgba(201,168,76,0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .cs-badge-icon svg { width: 10px; height: 10px; stroke: var(--gold); fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+    .cs-badge span {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    /* Headline */
+    .cs-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      font-weight: 700;
+      line-height: 1.12;
+      color: var(--text);
+      margin-bottom: 24px;
+    }
+    .cs-title .accent { color: var(--gold); }
+
+    /* Description */
+    .cs-desc {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 520px;
+      line-height: 1.75;
+      margin-bottom: 48px;
+    }
+
+    /* Divider */
+    .cs-divider {
+      width: 48px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold-dim), var(--gold));
+      border-radius: 2px;
+      margin: 0 auto 48px;
+    }
+
+    /* Contact block */
+    .cs-contact {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+      margin-bottom: 56px;
+    }
+
+    .cs-contact-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .cs-contact-icon {
+      width: 40px; height: 40px;
+      background: var(--gold-glow);
+      border: 1px solid rgba(201,168,76,0.2);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .cs-contact-icon svg { width: 18px; height: 18px; stroke: var(--gold); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+    .cs-contact-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 2px;
+    }
+    .cs-contact-value {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .cs-contact-value a {
+      color: var(--gold);
+      transition: color var(--transition);
+    }
+    .cs-contact-value a:hover { color: var(--gold-light); }
+
+    .cs-contact-sep {
+      width: 1px;
+      height: 40px;
+      background: var(--border);
+    }
+
+    /* CTA buttons */
+    .cs-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 56px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 13px 26px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all var(--transition);
+      border: none;
+      font-family: inherit;
+    }
+    .btn-primary {
+      background: var(--gold);
+      color: #0d0d0f;
+    }
+    .btn-primary:hover {
+      background: var(--gold-light);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px rgba(201,168,76,0.3);
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      border: 1.5px solid var(--border-light);
+    }
+    .btn-outline:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+      transform: translateY(-1px);
+    }
+
+    /* Trust pills */
+    .cs-trust {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: nowrap;
+    }
+
+    .trust-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 6px 14px;
+      background: var(--bg-raised);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+    .trust-pill svg { width: 12px; height: 12px; stroke: var(--gold); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 24px 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .footer-copy {
+      font-size: 0.82rem;
+      color: var(--text-dim);
+    }
+
+    .footer-back {
+      font-size: 0.82rem;
+      color: var(--text-dim);
+      transition: color var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .footer-back:hover { color: var(--gold); }
+    .footer-back svg { width: 12px; height: 12px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+    @media (max-width: 600px) {
+      .cs-contact-sep { display: none; }
+      .cs-contact { gap: 20px; }
+      .footer-inner { justify-content: center; text-align: center; }
+      .cs-trust { flex-wrap: wrap; }
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Nav ── -->
+<nav>
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-icon">
+          <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M481.429,332.892c-26.337-26.357-62.882-37.523-109.815-24.945L204.256,140.419l2.212-8.364c9.639-36.166-0.776-75.041-27.172-101.437C152.42,3.721,114.212-6.148,78.077,3.778c-5.153,1.415-9.164,5.464-10.529,10.631c-1.365,5.167,0.132,10.659,3.909,14.438l40.297,40.297c11.781,11.81,11.666,30.724,0.029,42.392c-11.545,11.576-30.951,11.558-42.45,0.029L29.028,71.257c-3.779-3.781-9.287-5.264-14.454-3.891c-5.168,1.372-9.202,5.393-10.612,10.551c-9.781,35.738-0.159,74.183,26.846,101.188c26.326,26.345,62.825,37.551,109.786,24.946l167.371,167.528c-12.49,46.919-1.716,83.11,24.975,109.801c26.91,26.93,65.136,36.726,101.192,26.833c5.154-1.414,9.166-5.464,10.532-10.631c1.366-5.167-0.13-10.66-3.909-14.44l-40.288-40.288c-11.781-11.81-11.666-30.726-0.029-42.392c11.689-11.629,31.052-11.444,42.45-0.015l40.308,40.297c3.779,3.779,9.287,5.262,14.453,3.889c5.167-1.373,9.201-5.392,10.611-10.549C518.041,398.352,508.421,359.897,481.429,332.892z"/><path d="M160.551,266.584L17.559,409.594c-23.401,23.401-23.401,61.455,0,84.855c23.401,23.401,61.455,23.401,84.855,0l142.989-143.006L160.551,266.584z M88.322,447.898c-5.86,5.86-15.35,5.86-21.21,0c-5.859-5.859-5.859-15.351,0-21.21l90.98-90.997c5.859-5.859,15.352-5.859,21.21,0c5.859,5.859,5.859,15.351,0,21.21L88.322,447.898z"/><path d="M507.596,30.253L481.737,4.394c-4.867-4.867-12.42-5.797-18.322-2.258l-79.547,47.723c-8.37,5.021-9.791,16.568-2.891,23.469l6.332,6.33l-100.98,100.567l42.435,42.435l100.98-100.567l8.919,8.921c6.901,6.899,18.449,5.479,23.469-2.891l47.723-79.547C513.393,42.673,512.463,35.12,507.596,30.253z"/></svg>
+        </div>
+        <div class="nav-logo-text">
+          <span class="nav-logo-name">GKA Technical</span>
+          <span class="nav-logo-sub">Great Falls, MT</span>
+        </div>
+      </a>
+
+      
+    </div>
+  </div>
+</nav>
+
+<!-- ── Main ── -->
+<main>
+  <div class="cs-inner">
+
+      <div class="cs-badge">
+        <div class="cs-badge-icon">
+          <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <span>Coming Soon</span>
+      </div>
+
+      <h1 class="cs-title">
+        Something Big<br />
+        Is <span class="accent">Coming.</span>
+      </h1>
+
+      <p class="cs-desc">
+        We're working on something new for GKA Technical. In the meantime, we're still available for all your commercial kitchen appliance repair needs.
+      </p>
+
+      <div class="cs-divider"></div>
+
+      <div class="cs-contact">
+        <div class="cs-contact-item">
+          <div class="cs-contact-icon">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 11.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.8 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l.91-.95a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <div>
+            <div class="cs-contact-value"><a href="tel:+14064034894">(406) 403-4894</a></div>
+          </div>
+        </div>
+
+        <div class="cs-contact-sep"></div>
+
+        <div class="cs-contact-item">
+          <div class="cs-contact-icon">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div>
+            <div class="cs-contact-value"><a href="mailto:gary.allen@gkatechnical.com">gary.allen@gkatechnical.com</a></div>
+          </div>
+        </div>
+
+
+        
+      </div>
+
+      <div class="cs-actions">
+        <a href="tel:+14064034894" class="btn btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 11.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.8 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l.91-.95a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Call Us Now
+        </a>
+        
+      </div>
+
+      <div class="cs-trust">
+        <div class="trust-pill">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          40+ Years Experience
+        </div>
+        <div class="trust-pill">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          90-Day Labor Warranty
+        </div>
+        <div class="trust-pill">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Same-Day Emergency Service
+        </div>
+        <div class="trust-pill">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          Locally Owned
+        </div>
+      </div>
+
+    </div>
+</main>
+
+<!-- ── Footer ── -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-copy">&copy; 2026 GKA Technical LLC. All rights reserved.</div>
+      
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
